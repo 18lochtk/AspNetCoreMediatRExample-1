@@ -21,10 +21,20 @@ namespace RazorPagesLab.Pages.AddressBook
 			_mediator = mediator;
 		}
 
-        public void OnGet(Guid id)
+        public async void OnGet(Guid id)
         {
-            // Todo: Use repo to get address book entry, set UpdateAddressRequest fields.
-		}
+            Specification<AddressBookEntry> spec = new EntryByIdSpecification(id);
+            AddressBookEntry temp = _repo.Find(spec)[0];
+            /**
+            UpdateAddressRequest.Id = temp.Id;
+            UpdateAddressRequest.Line1 = temp.Line1;
+            UpdateAddressRequest.Line2 = temp.Line2;
+            UpdateAddressRequest.City = temp.City;
+            UpdateAddressRequest.State = temp.State;
+            UpdateAddressRequest.PostalCode = temp.PostalCode;
+            **/
+
+        }
 
         public async Task<ActionResult> OnPostAsync()
         {
