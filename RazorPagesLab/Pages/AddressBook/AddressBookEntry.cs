@@ -2,7 +2,9 @@
 
 namespace RazorPagesLab.Pages.AddressBook
 {
+
 	public class AddressBookEntry : IEntity
+
     {
         private AddressBookEntry(string line1, string city, string state, string postalCode)
         {
@@ -27,13 +29,17 @@ namespace RazorPagesLab.Pages.AddressBook
 
 		public void Update(string line1, string line2, string city, string state, string postalCode)
 		{
-			Line1 = line1;
+  
+            Line1 = line1;
 			Line2 = line2;
 			City = city;
 			State = state;
 			PostalCode = postalCode;
 		}
-
+        public void Update(string line1, string city, string state, string postalCode)
+        {
+            Update(line1, "", city, state, postalCode);
+        }
         public static AddressBookEntry Create(string line1, string city, string state, string postalCode)
             => new AddressBookEntry(line1, city, state, postalCode);
 

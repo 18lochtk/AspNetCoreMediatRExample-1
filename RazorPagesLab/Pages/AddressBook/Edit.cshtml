@@ -21,7 +21,7 @@
     
     <div class="form-group">
 		<span asp-for="UpdateAddressRequest.Id"></span>
-        <input asp-for="UpdateAddressRequest.Id" type="hidden" />
+        <input asp-for="UpdateAddressRequest.Id" type="hidden" value="@Request.Query["id"]"/>
     </div>
     <div class="form-group">
         <label asp-for="UpdateAddressRequest.Line1"></label>
