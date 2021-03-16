@@ -25,14 +25,15 @@ namespace RazorPagesLab.Pages.AddressBook
         {
             Specification<AddressBookEntry> spec = new EntryByIdSpecification(id);
             AddressBookEntry temp = _repo.Find(spec)[0];
-            /**
+
+            UpdateAddressRequest = new UpdateAddressRequest();
             UpdateAddressRequest.Id = temp.Id;
             UpdateAddressRequest.Line1 = temp.Line1;
             UpdateAddressRequest.Line2 = temp.Line2;
             UpdateAddressRequest.City = temp.City;
             UpdateAddressRequest.State = temp.State;
             UpdateAddressRequest.PostalCode = temp.PostalCode;
-            **/
+            _ = await _mediator.Send(UpdateAddressRequest);
 
         }
 
